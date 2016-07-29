@@ -1,0 +1,12 @@
+  <div class="addtopic" ng-controller="AddtopicCtrl as child" ng-init="child.setParent(parent)">
+    <form ng-submit="submit()" name="addtopic" class="addtopicForm">
+      <textarea class="post" required placeholder="Write your topic here..." ng-model="topictext"/>
+      <div class="row-fluid">
+        <button type="submit" class="btn btn-default pull-right">Post</button>
+      </div>
+    </form>
+  </div>
+
+  <div ui-view>
+
+  </div>

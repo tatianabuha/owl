@@ -1,0 +1,16 @@
+<div class="pull-right" style="padding-right:160px"> <h3>Join us!</h3><button type="button" ui-sref="register" class="btn btn-primary">Register</button></div>
+<div class="well" style="padding-left:50px; padding-right:150px; padding-top: 20px;">
+  <form ng-submit="submit()" name="login" class="loginForm">
+    <fieldset>
+      <label for="userName">Username:</label>
+      <input focus id="userName" required ng-pattern="/^[-A-Za-z0-9]{2,20}$/" type="text" placeholder="Username" name="username" ng-model="username" />
+      <label for="password">Password:</label>
+      <input id="password" required type="password" placeholder="Password" name="password" ng-model="password"  />
+    </fieldset>
+    <div class="row-fluid">
+      <div class="span6 offset3">
+        <div class="pull-right"><button type="submit" class="btn btn-primary">Log In</button></div>
+      </div>
+    </div>
+  </form>
+</div>

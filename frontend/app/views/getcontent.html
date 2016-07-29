@@ -1,0 +1,22 @@
+<div class="test" ng-show="false">
+  No topics found...
+</div>
+<div class="test" ng-controller="AddtopicCtrl as child" ng-init="child.setParent(parent)">
+  <ul ng-repeat="topic in topics | reverse">
+    <li>
+      {{topic.username}}: {{topic.text}}
+      <div class="test2" ng-controller="AddcommentCtrl">
+        <u> Comments: </u>
+        <br>
+        <ul ng-repeat="comment in topic.comments">
+          <li>{{comment.usernameT}}: {{comment.ctext}}</li>
+        </ul>
+        <br>
+        <form ng-submit="submit()" name="addcomment">
+          <textarea style="width: 300px; height: 75px;" placeholder="What do you have to say?" ng-model="commenttext"> </textarea>
+          <button class="btn btn-default pull-right" type="submit"><i class="icon-ok"></i></button>
+        </form>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,145 @@
+/* app css stylesheet */
+body{
+  background-color: #e1e8f0;
+}
+h3{
+  color: #3a3f44;
+}
+.search{
+  padding-top: 4px;
+  align-content: center;
+}
+.btn-icon{
+  background-color: #e62739;
+  border: none;
+  height: 31px;
+  margin-bottom: 0;
+}
+.logo{
+  color: #e1e8f0;
+  height: 41px;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.welcome{
+  color:  #e62739;
+  height: 41px;
+  align-items: center;
+  margin: 0 auto;
+}
+
+#parent {
+  display: flex;
+}
+
+#narrow {
+  float: left;
+  width: 150px;
+}
+#wide {
+  float: right;
+  width: calc(100% - 150px);
+}
+.well{
+    background-color: #3a3f44;
+    width: 300px;
+    height: 300px;
+    margin:0 auto;
+}
+
+.loginForm{
+  width:50%;
+  margin:0 auto;
+  margin-top: 75px;
+}
+.hoverwell:hover {
+  background-color: #52575c;
+  cursor: pointer;
+}
+select, textarea {
+  color: #52575c;
+}
+
+.well-title {
+  margin-top: 0px;
+}
+.session {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.votingWidget {
+  height: 64px;
+  padding: 7px;
+}
+
+.votingButton {
+  padding-left:6px;
+  cursor:pointer;
+}
+
+.sessionThumbnail {
+    height:100%;
+    overflow: hidden;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.main-alert{
+   position: absolute;
+   top: 70px;
+   left: 5px;
+   right: 5px;
+   max-width: 400px;
+   margin: 0 auto;
+}
+
+.addtopic{
+  margin: 0 auto;
+  width: 400px;
+  padding: 0;
+}
+
+.post{
+  width: 400px;
+  height: 50px;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+hr{
+  width: 150px;
+}
+
+ul{
+  list-style-type: none;
+}
+h2{
+  color: black;
+}
+.groups{
+  color: black;
+}
+
+
+.test{
+  color: #6ed3cf;
+  margin: 0 auto;
+  width: 400px;
+}
+
+.test2{
+  color: #9068be;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}

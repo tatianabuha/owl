@@ -1,0 +1,9 @@
+<div ng-controller="GroupsavCtrl" style="margin: 0 auto; width: 400px">
+  <h2>Available groups</h2>
+  <ul ng-repeat="group in groupsav | reverse">
+    <li>
+      {{group}}
+      <button class=" btn btn-default">+</button>
+    </li>
+  </ul>
+</div>
