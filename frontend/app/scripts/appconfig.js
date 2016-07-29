@@ -31,8 +31,7 @@ angular.module('testAuthToken2App').config(function($urlRouterProvider, $statePr
     })
 
     .state('mypage.addcomment', {
-      templateUrl:'/views/addcomment.html',
-      controller: 'AddcommentCtrl'
+      templateUrl:'/views/addcomment.html'
     })
 
     .state('mypage.groupsav', {

@@ -50,21 +50,19 @@ app.post('/addtopic', function(req, res) {
         createDate: topic.createDate,
         comments: topic.comments
     });
-    newTopic.save(function(err) {
-        return res.status(200).send('Yey!');
+    newTopic.save(function(err, topic) {
+      console.log(topic);
+        return res.status(200).send(topic);
     });
 
 });
 
 app.post('/addcomment', function(req, res) {
-    console.log('here');
     var comment = req.body;
     var topicId = comment.topicId;
-
     var usernameT = comment.usernameT;
     var ctext = comment.ctext;
     var ccreateDate = comment.ccreateDate;
-
     Topic.findByIdAndUpdate(
         topicId, {
             $push: {
@@ -79,7 +77,9 @@ app.post('/addcomment', function(req, res) {
             upsert: true
         },
         function(err) {
+          if(err){
             console.log(err);
+          }
         }
     );
 

@@ -23,5 +23,4 @@ angular.module('testAuthToken2App').controller('GroupsavCtrl', function ($scope,
   }).error(function(err) {
     alert('warning', 'Unable to get the groups! ', err.message);
   });
-
 });

@@ -5,7 +5,7 @@
   <ul ng-repeat="topic in topics | reverse">
     <li>
       {{topic.username}}: {{topic.text}}
-      <div class="test2" ng-controller="AddcommentCtrl">
+      <div class="test2" ng-controller="AddcommentCtrl as childtwo" ng-init="childtwo.setParent(child)">
         <u> Comments: </u>
         <br>
         <ul ng-repeat="comment in topic.comments">
