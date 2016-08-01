@@ -6,9 +6,10 @@ angular.module('testAuthToken2App').controller('AddgroupCtrl', function ($scope,
     var currentDate = new Date();
     var token = authToken.getToken();
     var group = {
-      name: $scope.groupname,
+      name: $scope.groupnamec,
       createDate: currentDate,
-      token: token
+      token: token,
+      admin: $scope.usernamel
     };
     $http.post(url, group)
     .success(function(res){

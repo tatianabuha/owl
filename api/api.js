@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var User = require('./models/User.js');
 var Group = require('./models/Group.js');
 var Topic = require('./models/Topic.js');
+var Request = require('./models/Request.js');
 var jwt = require('jwt-simple');
 
 var app = express();
@@ -17,6 +18,7 @@ app.use(function(req, res, next) {
 });
 
 // adding intems to the page
+
 app.post('/addgroup', function(req, res) {
     var group = req.body;
     var token = req.body.token;
@@ -24,7 +26,8 @@ app.post('/addgroup', function(req, res) {
     var userId = payload.sub;
     var newGroup = new Group({
         name: group.name,
-        createDate: group.createDate
+        createDate: group.createDate,
+        admin: group.admin
     });
     newGroup.save(function(err) {
         return res.status(200).send('Yey!');
@@ -83,6 +86,22 @@ app.post('/addcomment', function(req, res) {
         }
     );
 
+});
+
+app.post('/addrequest', function(req, res){
+  var request = req.body;
+  var username = request.username;
+
+  var newRequest = new Request({
+      username: username,
+      groupname: request.groupname,
+      admin: request.admin,
+      answer: request.answer
+  });
+  newRequest.save(function(err, request) {
+    console.log(request);
+      return res.status(200).send(request);
+  });
 });
 
 app.post('/register', function(req, res) {
@@ -187,11 +206,73 @@ app.get('/groupsav', function(req, res) {
           console.log(err);
       }
       for (var j = 0; j < groups_db.length; j++) {
-          result_groups.push(groups_db[j].name)
+          result_groups.push(groups_db[j])
       }
       return res.json(result_groups);
   });
-})
+});
+
+app.post('/acceptrequest', function(req, res){
+  var request = req.body;
+  var username = request.username;
+  var groupname = request.groupname;
+  User.findOne({
+      username: username
+  }).exec(function(err, user) {
+      var id = request._id;
+      user.groups.push(groupname);
+      user.save(function(err) {
+          console.log(user);
+      });
+      Request.remove({
+          _id: id
+      }).exec(function(err) {
+        if(err){
+          console.log(err);
+        }
+
+      });
+  });
+
+});
+
+app.post('/declinerequest', function(req, res){
+  var request = req.body;
+  var id = request._id;
+  Request.remove({
+      _id: id
+  }).exec(function(err) {
+    if(err){
+      console.log(err);
+    }
+
+  });
+
+});
+
+app.get('/getrequests', function(req, res){
+  if (!req.headers.authorization) {
+      return res.status(401).send({
+          message: 'You are not authorized!'
+      });
+  }
+  var token = req.headers.authorization.split(' ')[1];
+  var payload = jwt.decode(token, "shh...");
+
+  if (!payload.sub) {
+      return res.status(401).send({
+          message: "Authentication failed! "
+      });
+  }
+  var username = req.query.username;
+  console.log(req.query);
+  Request.find({admin: username}, function(err, requests) {
+    if (err) {
+        console.log(err);
+    }
+    return res.json(requests);
+});
+});
 
 app.get('/mypage', function(req, res) {
     if (!req.headers.authorization) {

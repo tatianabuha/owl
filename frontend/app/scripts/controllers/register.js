@@ -13,6 +13,7 @@ angular.module('testAuthToken2App').controller('RegisterCtrl', function ($scope,
         .success(function(res){
           alert('success', 'Account created! ', 'Welcome, ' + user.username + '!');
           authToken.setToken(res.token);
+          authToken.setUsername(res.user.username);
           $state.go('mypage');
         })
         .error(function(err){
