@@ -19,22 +19,20 @@
 <body ng-app="testAuthToken2App">
 
   <!-- Add your site or application content here -->
-  <div class="container">
+  <div class="container-fluid">
     <div class="navbar" ng-cloak>
       <div class="navbar-inner" ng-controller="HeaderCtrl">
         <ul class="nav">
           <li>
-            <h3 class="logo">OWL</h3></li>
-            <li ng-show="isAuthenticated()">
-              <h3 class="welcome" style="margin-left: 270px;  font-family: 'Times New Roman', Times, serif">Enjoy your stay, {{usernamel}}! </h3></li>
+            <img src="img/logo.png" />
+          </li>
+          <li><h3 class="logo" style="padding-left">Owl</h3></li>
+          <li ng-show="isAuthenticated()">
+            <h3 class="welcome">Enjoy your stay, {{usernamel}}! </h3></li>
         </ul>
-        <div class="col-sm-3 col-md-3 pull-right search">
-          <div class="input-append">
-            <input class="span2" type="text" placeholder="Search">
-            <button type="submit" class="btn-icon">
-              <i class="icon-search"></i>
-            </button>
-          </div>
+        <div class="far-right">
+          <a ng-show="isAuthenticated()" ui-sref="logout" class="pull-right">Logout</a>
+          <a ng-show="isAuthenticated()" ui-sref="mypage.addgroup" class="pull-right">Create group</a>
         </div>
       </div>
     </div>

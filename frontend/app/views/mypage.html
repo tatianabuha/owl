@@ -1,25 +1,17 @@
-<div class="container" ng-controller="HeaderCtrl">
-  <button type="button" ng-show="isAuthenticated()" ui-sref=".addgroup" class="btn btn-default pull-left">Create group</button>
-  <button type="button" ng-hide="isAuthenticated()" ui-sref="register" class="btn btn-primary pull-right">Register</button>
-  <button type="button" ng-hide="isAuthenticated()" ui-sref="main" class="btn btn-primary pull-right" style="margin-right: 10px">Login</button>
-  <button type="button" ng-show="isAuthenticated()" ui-sref="logout" class="btn btn-default pull-right">Logout</button>
-</div>
-
 <div class="parent" ng-controller="GroupcontentCtrl as parent">
   <div id="narrow">
-    <h2>Groups</h2>
-
-    <hr>
-    <ul ng-repeat="group in groups | reverse">
-      <li>
-        <a class="groups" ng-click="getGroupname(group)" ui-sref=".addtopic.getcontent">{{group}}</a>
+    <div id="sidebar-wrapper" class="sidebar-toggle">
+      <h2 style="border-bottom: 1pt solid grey">Groups</h2>
+    <ul class="sidebar-nav">
+      <li ng-repeat="group in groups | reverse">
+        <a title="{{group}} "class="groups" ng-click="getGroupname(group)" ui-sref=".addtopic.getcontent">{{group}}</a>
       </li>
     </ul>
+  </div>
   </div>
   <div id="wide">
     <span ng-hide="true">{{groupname}}</span>
     <div ui-view style="width: 940px;">
-
     </div>
   </div>
 </div>

@@ -1,18 +1,20 @@
 <div class="well" style="padding-left:50px; padding-right:150px">
-  <form ng-submit="submit()" name="register" class="registerForm">
-    <fieldset>
-      <label for="userName">Username:</label>
-      <input focus id="userName" required ng-pattern="/^[-A-Za-z0-9]{2,20}$/" type="text" placeholder="Username" name="username" ng-model="username" />
-      <label for="password">Password:</label>
-      <input id="password" required type="password" placeholder="Password" name="password" ng-model="password" />
-      <label for="firstname">First Name:</label>
-      <input id="firstname" required ng-pattern="/^[-A-Za-z0-9]{2,20}$/" type="text" placeholder="First Name" name="firstname" ng-model="firstname" />
-      <label for="lastname">Last Name:</label>
-      <input focus id="lastname" required ng-pattern="/^[-A-Za-z0-9]{2,20}$/" type="text" placeholder="Last Name" name="lastname" ng-model="lastname" />
-    </fieldset>
-    <div class="row-fluid">
-      <button type="submit" ng-disabled="register.$invalid" class="btn btn-default">Register</button>
-      <button type="button" ui-sref="main" class="btn btn-default">Cancel</button>
-    </div>
-  </form>
+  <div class="registerform">
+    <form ng-submit="submit()" name="register">
+      <fieldset>
+        <label for="userName">Username:</label>
+        <input focus id="userName" required ng-pattern="/^[-A-Za-z0-9]{2,20}$/" type="text" placeholder="Username" name="username" ng-model="username" />
+        <label for="password">Password:</label>
+        <input id="password" required type="password" placeholder="Password" name="password" ng-model="password" />
+        <label for="firstname">First Name:</label>
+        <input id="firstname" required ng-pattern="/^[-A-Za-z0-9]{2,20}$/" type="text" placeholder="First Name" name="firstname" ng-model="firstname" />
+        <label for="lastname">Last Name:</label>
+        <input focus id="lastname" required ng-pattern="/^[-A-Za-z0-9]{2,20}$/" type="text" placeholder="Last Name" name="lastname" ng-model="lastname" />
+      </fieldset>
+      <div class="row-fluid register-buttons">
+        <button type="submit" ng-disabled="register.$invalid" class="btn btn-primary">Register</button>
+        <button type="button" ui-sref="main" class="btn btn-primary pull-right">Cancel</button>
+      </div>
+    </form>
+  </div>
 </div>

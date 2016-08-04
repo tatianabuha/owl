@@ -37,7 +37,6 @@ app.post('/addgroup', function(req, res) {
     }).exec(function(err, user) {
         user.groups.push(group.name);
         user.save(function(err) {
-            console.log(user);
         });
     });
 });
@@ -54,7 +53,6 @@ app.post('/addtopic', function(req, res) {
         comments: topic.comments
     });
     newTopic.save(function(err, topic) {
-      console.log(topic);
         return res.status(200).send(topic);
     });
 
@@ -99,7 +97,6 @@ app.post('/addrequest', function(req, res){
       answer: request.answer
   });
   newRequest.save(function(err, request) {
-    console.log(request);
       return res.status(200).send(request);
   });
 });
@@ -222,7 +219,6 @@ app.post('/acceptrequest', function(req, res){
       var id = request._id;
       user.groups.push(groupname);
       user.save(function(err) {
-          console.log(user);
       });
       Request.remove({
           _id: id
@@ -265,7 +261,6 @@ app.get('/getrequests', function(req, res){
       });
   }
   var username = req.query.username;
-  console.log(req.query);
   Request.find({admin: username}, function(err, requests) {
     if (err) {
         console.log(err);

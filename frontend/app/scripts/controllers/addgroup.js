@@ -14,7 +14,7 @@ angular.module('testAuthToken2App').controller('AddgroupCtrl', function ($scope,
     $http.post(url, group)
     .success(function(res){
       alert('success', 'Group created! ', res);
-      $state.go('mypage');
+      $state.go('mypage.groupsav');
       $scope.groups.push(group.name);
     })
     .error(function(err){

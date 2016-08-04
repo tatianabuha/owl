@@ -1,15 +1,18 @@
-<div class="test" ng-show="false">
-  No topics found...
-</div>
 <div class="test" ng-controller="AddtopicCtrl as child" ng-init="child.setParent(parent)">
-  <ul ng-repeat="topic in topics | reverse">
-    <li>
-      {{topic.username}}: {{topic.text}}
+  <ul class="groupcontent">
+    <li ng-repeat="topic in topics | reverse">
+      <div class="topicstyle">
+        <div class="topictext">
+          {{topic.text}}
+        </div>
+        <span class="pull-right">by {{topic.username}} </span>
+      </div>
       <div class="test2" ng-controller="AddcommentCtrl as childtwo" ng-init="childtwo.setParent(child)">
-        <u> Comments: </u>
-        <br>
-        <ul ng-repeat="comment in topic.comments">
-          <li>{{comment.usernameT}}: {{comment.ctext}}</li>
+        <h4> Comments: </h4>
+        <ul class="comments-list">
+          <li ng-repeat="comment in topic.comments"> <span class="usercomment">{{comment.usernameT}}:</span>
+            <div class="comments"> {{comment.ctext}}</div>
+          </li>
         </ul>
         <br>
         <form ng-submit="submit()" name="addcomment">

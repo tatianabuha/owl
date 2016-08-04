@@ -2,19 +2,30 @@
 body{
   background-color: #e1e8f0;
 }
-h3{
+h3, h4{
   color: #3a3f44;
 }
-.search{
-  padding-top: 4px;
-  align-content: center;
+
+.custom{
+  margin-left: 5px;
+  width: 20px;
+  height: 20px;
+  line-height: 10px;
+  padding: 0;
 }
-.btn-icon{
-  background-color: #e62739;
-  border: none;
-  height: 31px;
-  margin-bottom: 0;
+
+.container-fluid{
+  position: relative;
+  width: 100%;
+  padding: 0;
 }
+
+.navbar-inner{
+  border: 0px;
+  border-radius: 0px;
+  height: 49px;
+}
+
 .logo{
   color: #e1e8f0;
   height: 41px;
@@ -23,12 +34,24 @@ h3{
 }
 
 .welcome{
-  color:  #e62739;
+  position: relative;
+  color:  #6ed3cf;
   height: 41px;
   align-items: center;
   margin: 0 auto;
+  margin-left: 340px;
+  font-family: 'Verdana', Verdana, sans;
 }
 
+.addgroupform, .registerform{
+  width: 150px;
+  margin: 0 auto;
+}
+
+
+.register-buttons{
+  width: 220px;
+}
 #parent {
   display: flex;
 }
@@ -36,11 +59,14 @@ h3{
 #narrow {
   float: left;
   width: 150px;
+  background-color: #3a3f44;
 }
 #wide {
   float: right;
-  width: calc(100% - 150px);
+  width: calc(100% - 300px);
+  margin-right: 150px;
 }
+
 .well{
     background-color: #3a3f44;
     width: 300px;
@@ -109,22 +135,24 @@ select, textarea {
 
 .post{
   width: 400px;
-  height: 50px;
+  height: 100px;
   padding: 0;
   margin: 0;
   margin-bottom: 10px;
 }
 
-hr{
-  width: 150px;
-}
 
 ul{
   list-style-type: none;
 }
+
 h2{
-  color: black;
+  color: #e1e8f0;
+  text-indent: 10px;
+  margin: 0;
+  /*background: rgba(255,255,255,0.25);*/
 }
+
 .groups{
   color: black;
 }
@@ -138,14 +166,151 @@ h2{
 
 .test2{
   color: #9068be;
+  overflow: visible;
 }
 
 .requests{
+  z-index: 1;
   position: fixed;
-  bottom: 100px;
-  right: 200px;
+  bottom: 0px;
+  right: 10px;
+  background-color: lightgrey;
+  border-radius: 5pt;
 }
 
+.requests-inner{
+  padding: 10px;
+}
+
+.requests-text{
+  font-weight: bold;
+  font-size: 14px;
+}
+.groupcontent{
+  margin: 0;
+}
+
+.usercomment{
+  margin-left: 10px;
+  font-weight: bold;
+  font-family: Verdana;
+}
+
+.comments{
+  color: grey;
+  margin-left: 15px;
+  margin-right: 5px;
+  word-break: break-all;
+  font-family: Verdana;
+}
+
+.comments-list{
+  margin: 0;
+  font-size: 13px;
+  background-color: white;
+  border-radius: 5pt;
+}
+
+h4.topicname{
+  margin: 0;
+  text-decoration: underline;
+}
+
+.topictext{
+  padding-right: 10px;
+  padding-bottom: 10px;
+  word-break: break-all;
+  font-size: 18px;
+  color: black;
+  font-weight: bold;
+}
+
+.link-text{
+  font-weight: normal;
+}
+.available-groups{
+  margin: 0 auto;
+  width: 400px;
+  background-color: white;
+  border-radius: 5pt;
+}
+
+.available-groups-inner{
+  padding: 10px;
+}
+
+.available-groups-item, .requests-item{
+  color: #3a3f44;
+  font-size: 14px;
+  margin-top: 5px;
+}
+#sidebar-wrapper {
+  top: 48px;
+  width: 150px;
+  background-color: #3a3f44;
+  color: white;
+  position: absolute;
+  min-height: 100%;
+  z-index: 1;
+  border-right: 1pt solid grey;
+}
+.sidebar-nav {
+  top: 10px;
+  margin: 0;
+  padding: 0;
+  width: 150px;
+  list-style: none;
+}
+.sidebar-nav li {
+  text-indent: 20px;
+  line-height: 50px;
+  height: 50px;
+  overflow-y: hidden;
+  border-bottom: 1pt solid grey;
+}
+.sidebar-nav li a {
+  color: #e1e8f0;
+  display: block;
+  text-decoration: none;
+}
+
+.sidebar-nav li a:target{
+  background: rgba(255,255,255,0.25);
+  color: white;
+  text-decoration: none;
+}
+.sidebar-nav li a:hover{
+  background: rgba(255,255,255,0.25);
+  color: white;
+  text-decoration: none;
+}
+.sidebar-nav li a:active, .sidebar-nav li a:focus{
+  background: rgba(255,255,255,0.25);
+  color: white;
+  text-decoration: none;
+}
+#sidebar-wrapper.sidebar-toggle {
+  transition: all 0.3s ease-out;
+}
+@media (min-width: 768px) {
+  #sidebar-wrapper.sidebar-toggle {
+    transition: 0s;
+  }
+}
+
+.far-right a{
+  height: 48px;
+  line-height: 48px;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-decoration: none;
+}
+.far-right a:hover, .far-right a:active{
+  background: rgba(255,255,255,0.25);
+  color: white;
+  text-decoration: none;
+}
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }

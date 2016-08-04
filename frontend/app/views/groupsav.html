@@ -1,21 +1,26 @@
-<div ng-controller="GroupsavCtrl" style="margin: 0 auto; width: 400px">
-  <h2>Available groups</h2>
-  <ul ng-repeat="group in groupsav | reverse">
-    <li>
-      <button ng-click="sendRequest(group, usernamel)" class=" btn btn-default">+</button>
-      {{group.name}}
-    </li>
-  </ul>
+<div class="available-groups" ng-controller="HeaderCtrl">
+  <div class="available-groups-inner" ng-controller="GroupsavCtrl">
+    <h4>Available groups:</h4>
+    <ul>
+      <li class="available-groups-item" ng-repeat="group in groupsav | reverse">
+        <button ng-click="sendRequest(group, usernamel)" class=" btn btn-default custom">+</button>
+        {{group.name}}
+      </li>
+    </ul>
+  </div>
 </div>
 
 <div class="requests" ng-controller="GroupsavCtrl">
-  <h3>Pending requests</h3>
-  <ul ng-repeat="request in requests">
-    <li>
-      {{request.username}} {{request.groupname}}
-      <br>
-      <button ng-click="answerRequestYes(request)" class=" btn btn-default"><i class="icon-ok"></i></button>
-      <button ng-click="answerRequestNo(request)" class=" btn btn-default"><i class="icon-remove"></i></button>
-    </li>
-  </ul>
+  <div class="requests-inner">
+    <h4>Pending requests</h4>
+    <ul>
+      <li class="requests-item" ng-repeat="request in requests">
+        <div class="requests-text">
+        {{request.username}} <span class="link-text"> wants to join </span> {{request.groupname}} <span class="link-text"> group. </span>
+        </div>
+        <button ng-click="answerRequestNo(request)" class=" btn btn-default pull-right custom"><i class="icon-remove"></i></button>
+        <button ng-click="answerRequestYes(request)" class=" btn btn-default pull-right custom"><i class="icon-ok"></i></button>
+      </li>
+    </ul>
+  </div>
 </div>

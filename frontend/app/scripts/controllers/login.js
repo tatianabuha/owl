@@ -7,10 +7,9 @@ angular.module('testAuthToken2App').controller('LoginCtrl', function ($scope, al
         alert('success', 'Welcome! ', 'Thanks for coming back, ' + res.user.username + '!');
         authToken.setUsername(res.user.username);
         $state.go('mypage');
-        $scope.username = null;
       })
       .error(function(err){
-        alert('warning', 'Something went wrong :( ', err.message);
+        alert('warning', 'Something went wrong. ', err.message);
       });
   };
   });
